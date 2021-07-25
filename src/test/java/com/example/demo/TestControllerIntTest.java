@@ -27,4 +27,12 @@ class TestControllerIntTest {
         assertThat(response.getHeaders()).containsKey("x-date");
         assertThat(response.getBody()).isEqualTo("foo");
     }
+
+    @Test
+    void resultNull() {
+        ResponseEntity<String> response = testRestTemplate.getForEntity("/result-null", String.class);
+
+        assertThat(response.getHeaders()).containsKey("x-date");
+        assertThat(response.getBody()).isNull();
+    }
 }
